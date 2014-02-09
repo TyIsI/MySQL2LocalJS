@@ -2,7 +2,7 @@
  * Copyright 2014, Tycho (Ty) Eggen
  */
 function MySQL2Local( timestamp ) {
-  // split the MySQL timestamp
+	// split the MySQL timestamp
 	var t = timestamp.split(/[- :]/);
 	// Initialize new Date variable
 	var d = new Date();
