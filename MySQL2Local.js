@@ -2,19 +2,22 @@
  * Copyright 2014, Tycho (Ty) Eggen
  */
 function MySQL2Local( timestamp ) {
-	// split the MySQL timestamp
+	// Split the MySQL timestamp
 	var t = timestamp.split(/[- :]/);
+
 	// Initialize new Date variable
 	var d = new Date();
+
 	// Import UTC parts
 	d.setUTCFullYear( t[0] );
-	d.setUTCMonth( t[1] );
+	d.setUTCMonth( t[1] - 1 );
 	d.setUTCDate( t[2] );
 	d.setUTCHours( t[3] );
 	d.setUTCMinutes( t[4] );
 	d.setUTCSeconds( t[5] );
-	// Get variables and pad with 0 if it's only 1 character
-	var month = d.getMonth();
+
+	// Get variables and pad with 0 if it's only 1 character, increase month by 1
+	var month = d.getMonth() + 1;
 	if( month.toString().length == 1 ) { month = "0" + month; }
 	var days = d.getDate();
 	if( days.toString().length == 1 ) { days = "0" + days; }
